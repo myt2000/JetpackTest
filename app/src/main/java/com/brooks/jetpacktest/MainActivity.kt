@@ -4,9 +4,41 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
+
+//class MyObserver {
+//    fun activityStart() {
+//
+//    }
+//
+//    fun activityStop() {
+//
+//    }
+//}
+//
+//
+//class MainActivity  : AppCompatActivity() {
+//
+//    lateinit var observer: MyObserver
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        observer = MyObserver()
+//    }
+//
+//    override fun onStart() {
+//        super.onStart()
+//        observer.activityStart()
+//    }
+//
+//    override fun onStop() {
+//        super.onStop()
+//        observer.activityStop()
+//    }
+//}
 
 class MainActivity : AppCompatActivity() {
 
