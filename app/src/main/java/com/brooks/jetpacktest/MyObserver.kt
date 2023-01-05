@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.*
 
 
-class MyObserver : LifecycleEventObserver {
+class MyObserver(val lifecycle: Lifecycle) : LifecycleEventObserver {
     private fun activityStart() {
         Log.d("MyObserver", "activityStart")
     }
