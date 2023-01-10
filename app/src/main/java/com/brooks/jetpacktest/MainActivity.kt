@@ -66,10 +66,17 @@ class MainActivity : AppCompatActivity() {
             viewModel.clear()
         }
 
+        getUserBtn.setOnClickListener {
+            val userId = (0..10000).random().toString()
+            viewModel.getUser(userId)
+        }
+        viewModel.user.observe(this, Observer {
+                user -> infoText.text = user.firstName
+        })
+
         viewModel.counter.observe(this, Observer { count ->
             infoText.text = count.toString()
         })
-
     }
 
     override fun onPause() {
