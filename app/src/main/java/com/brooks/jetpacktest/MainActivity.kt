@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.core.content.edit
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -59,25 +60,23 @@ class MainActivity : AppCompatActivity() {
 //        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         plusOneBtn.setOnClickListener {
-            viewModel.counter++
-            refreshCounter()
+            viewModel.plusOne()
         }
 
         clearBtn.setOnClickListener {
-            viewModel.counter = 0
-            refreshCounter()
+            viewModel.clear()
         }
-        refreshCounter()
+
+        viewModel.counter.observe(this, Observer { count ->
+            infoText.text = count.toString()
+        })
+
     }
 
     override fun onPause() {
         super.onPause()
         sp.edit {
-            putInt("count_reserved", viewModel.counter)
+            putInt("count_reserved", viewModel.counter.value?:0)
         }
-    }
-
-    private fun refreshCounter() {
-        infoText.text = viewModel.counter.toString()
     }
 }
