@@ -7,14 +7,21 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel(countReserved: Int): ViewModel() {
 
+    private val userIdLiveData = MutableLiveData<String>()
+
+    val user: LiveData<User> = Transformations.switchMap(userIdLiveData) {
+        userId -> Repository.getUser(userId)
+    }
+
+    fun getUser(userId: String) {
+        userIdLiveData.value = userId
+    }
+
+
     private val userLiveData = MutableLiveData<User>()
 
     val userName: LiveData<String> = Transformations.map(userLiveData) {
         user -> "${user.firstName} ${user.lastName}"
-    }
-
-    fun getUser(userId: String): LiveData<User> {
-        return Repository.getUser(userId)
     }
 
 

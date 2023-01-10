@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, MainViewModelFactory(countReserved)).get(MainViewModel::class.java)
 
 
-
 //        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         plusOneBtn.setOnClickListener {
