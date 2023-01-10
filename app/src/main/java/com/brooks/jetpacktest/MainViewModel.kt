@@ -13,6 +13,10 @@ class MainViewModel(countReserved: Int): ViewModel() {
         user -> "${user.firstName} ${user.lastName}"
     }
 
+    fun getUser(userId: String): LiveData<User> {
+        return Repository.getUser(userId)
+    }
+
 
     var counter: LiveData<Int> = MutableLiveData()
         get() = _counter
