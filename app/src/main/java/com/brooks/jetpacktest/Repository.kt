@@ -9,8 +9,4 @@ object Repository {
         liveData.value = User(userId, userId, 0)
         return liveData
     }
-
-    fun refresh() {
-
-    }
 }
