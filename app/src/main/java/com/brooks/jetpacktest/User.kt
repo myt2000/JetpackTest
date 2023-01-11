@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class User(var firstName: String, var lastName: String, var age: Int) {
 
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0
+    var id: Long = 0
 }
