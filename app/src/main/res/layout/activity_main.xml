@@ -67,4 +67,13 @@
         android:layout_gravity="center_horizontal"
         android:text="Query Data"
         />
+
+    <Button
+        android:id="@+id/doWorkBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Do Work"
+        />
+
 </LinearLayout>
